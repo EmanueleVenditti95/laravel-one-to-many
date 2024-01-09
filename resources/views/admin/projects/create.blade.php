@@ -12,6 +12,14 @@
             <input type="text" class="form-control" name="title" id="title" placeholder="Inserisci titolo">
         </div>
         <div class="form-group">
+            <label for="type_id">Tipo di progetto</label>
+            <select class="form-select" name="type_id" id="type_id">
+                @foreach ($types as $type)
+                    <option @selected(old('type_id')==$type->id) value="{{$type->id}}">{{$type->name}}</option>  
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="image">Immagine</label>
             <input type="url" class="form-control" name="image" id="image" placeholder="URL immagine">
         </div>

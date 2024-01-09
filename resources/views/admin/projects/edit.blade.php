@@ -13,6 +13,15 @@
                 <input type="text" class="form-control" name="title" id="title" placeholder="Inserisci titolo" value="{{$project->title}}">
             </div>
             <div class="form-group">
+                <label for="type_id">Tipo di progetto</label>
+                <select class="form-select" name="type_id" id="type_id">
+                    <option>-</option>
+                    @foreach ($types as $type)
+                        <option @selected(old('type_id',optional($project->type)->id)==$type->id) value="{{$type->id}}">{{$type->name}}</option>  
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="image">Immagine</label>
                 <input type="url" class="form-control" name="image" id="image" placeholder="URL immagine" value="{{$project->image}}">
             </div>
@@ -22,11 +31,11 @@
             </div>
             <div class="col-auto d-flex">
                 <input type="submit" class="btn btn-warning mt-3 mx-2" value="modifica">
-                <form action="{{route('projects.destroy',$project)}}" method="POST">
+                {{-- <form action="{{route('projects.destroy',$project)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input class="btn btn-danger mt-3" type="submit" value="elimina">
-                </form>
+                </form> --}}
             </div>    
         </form>
     </div>    

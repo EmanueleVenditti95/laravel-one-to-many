@@ -14,6 +14,7 @@
         <div class="form-group">
             <label for="type_id">Tipo di progetto</label>
             <select class="form-select" name="type_id" id="type_id">
+                <option>-</option>
                 @foreach ($types as $type)
                     <option @selected(old('type_id')==$type->id) value="{{$type->id}}">{{$type->name}}</option>  
                 @endforeach

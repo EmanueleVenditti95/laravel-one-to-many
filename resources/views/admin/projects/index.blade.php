@@ -17,6 +17,7 @@
                         <th scope="row">{{ $project->id }}</th>
                         <td><a class="text-dark text-decoration-none" href="{{route('projects.show',$project)}}">{{ $project->title }}</a></td>
                         <td><img class="w-25" src="{{ $project->image }}" alt=""></td>
+                        <td>{{isset($project->type) ? $project->type->name : '-'}}</td>
                         <td>
                             <div class="col-auto d-flex">
                                 <button class="btn btn-warning mx-2"><a class="text-dark text-decoration-none" href="{{ route('projects.edit',$project) }}">modifica</a></button>

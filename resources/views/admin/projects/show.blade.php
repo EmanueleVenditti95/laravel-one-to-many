@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-            @dump($project->type_id)
+            <h2>{{isset($project->type) ? $project->type->name : ' '}}</h2>
             <h1>{{ $project->title }}</h1>
             <figure><img src="{{ $project->image }}" alt=""></figure>
             <p>{{ $project->description }}</p>
